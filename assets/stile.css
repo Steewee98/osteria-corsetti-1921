@@ -294,3 +294,7 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 @media (prefers-reduced-motion:reduce){.rec-scorre{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.rec-copia{display:none}}
 .wa{transition:transform .35s var(--ease),opacity .35s}
 .wa.nascosto{transform:translateY(160%);opacity:0;pointer-events:none}
+
+/* file che scorrono di lato (foto dei piatti, categorie del menù, recensioni): solo in orizzontale.
+   Prima la fila dei piatti era 12px più alta del riquadro e col dito si muoveva anche su e giù. */
+.fila,.schede-menu ul,.rec-scorre{overflow-y:hidden;overscroll-behavior-x:contain}
