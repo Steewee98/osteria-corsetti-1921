@@ -85,3 +85,11 @@
     $$(".portata").forEach(s => oss.observe(s));
   }
 })();
+
+// Barra WhatsApp: nascosta finché si vede la hero (che ha già i suoi pulsanti), poi compare.
+(function () {
+  var hero = document.querySelector(".hero"), wa = document.querySelector(".wa");
+  if (!hero || !wa || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function (v) { wa.classList.toggle("nascosto", v[0].isIntersecting); },
+    { rootMargin: "0px 0px -35% 0px" }).observe(hero);
+})();
