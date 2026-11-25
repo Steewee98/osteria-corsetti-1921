@@ -366,4 +366,5 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 @media (max-width:860px){.fascia-dehors .f-fascia{height:64svh}}
 .hero-foto .wrap{position:static}
 .hero-foto .wrap>.appare{position:relative;z-index:1}
-.hero-foto .btn-linea{border:1.5px solid rgba(255,255,255,.75)}
+.hero-foto .btn-linea{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8)}
+.hero-foto .foto-hero{justify-self:stretch;align-self:stretch}
