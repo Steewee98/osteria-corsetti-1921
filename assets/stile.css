@@ -330,3 +330,4 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 @media (max-width:860px){.galleria-locale .galleria .g1{aspect-ratio:4/5}}
 /* la foto grande della galleria è alta quanto le due a destra */
 @media (min-width:861px){.galleria{grid-template-rows:auto auto}.galleria .g1{aspect-ratio:auto;height:100%;min-height:0}}
+@media (min-width:861px){.galleria .g1 img{position:absolute;inset:0}}
