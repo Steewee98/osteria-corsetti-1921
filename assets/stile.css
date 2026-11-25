@@ -368,3 +368,13 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 .hero-foto .wrap>.appare{position:relative;z-index:1}
 .hero-foto .btn-linea{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8)}
 .hero-foto .foto-hero{justify-self:stretch;align-self:stretch}
+/* hero: sul computer il dehors (orizzontale), sul telefono l'ingresso (verticale) */
+.hero-foto .foto-hero picture{display:block;width:100%;height:100%}
+.hero-foto .foto-hero img{object-position:50% 50%}
+@media (min-width:861px){.hero-foto .foto-hero img{object-position:50% 58%}}
+@media (max-width:860px){.hero-foto .foto-hero img{object-position:50% 40%}}
+/* il dehors a tutta larghezza serve solo sul telefono (sul computer è già nella hero) */
+@media (min-width:861px){.fascia-dehors{display:none}}
+/* l'ingresso in "Dove siamo": solo sul computer (sul telefono è nella hero) */
+.f-ingresso{aspect-ratio:4/5;max-height:560px;width:100%;border-radius:999px 999px var(--r) var(--r);margin-bottom:28px}
+@media (max-width:860px){.f-ingresso{display:none}}
