@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cantina degli Artisti | Osteria Corsetti 1921</title>
+<meta name="description" content="The Cantina degli Artisti is a room for about 40 people that you can book just for yourselves.">
+<meta name="robots" content="noindex"><!-- BOZZA: togliere alla pubblicazione -->
+<link rel="alternate" hreflang="it" href="../cantina.html"><link rel="alternate" hreflang="en" href="cantina.html">
+<meta property="og:title" content="The Cantina degli Artisti | Osteria Corsetti 1921"><meta property="og:description" content="The Cantina degli Artisti is a room for about 40 people that you can book just for yourselves.">
+<meta property="og:image" content="../assets/img/galeone.webp">
+<meta name="theme-color" content="#1c2752">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ultra&family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../assets/stile.css?v=6c484d13">
+
+</head>
+<body>
+<a class="salta" href="#contenuto">Skip to content</a>
+<div id="cima" aria-hidden="true" style="position:absolute;top:0;height:1px;width:1px"></div>
+<header class="testata">
+  <div class="wrap">
+    <a class="marchio" href="index.html" aria-label="Osteria Corsetti 1921, Home"><span class="o">OSTERIA</span><span class="c">CORSETTI 1921</span></a>
+    <nav id="navigazione" aria-label="Pages"><ul><li><a href="menu.html">Menu</a></li><li><a href="cantina.html" aria-current="page">Cantina degli Artisti</a></li><li><a href="index.html#recensioni">Reviews</a></li><li><a href="index.html#dove">Find us</a></li></ul></nav>
+    <div class="destra">
+      <a class="lingua" href="../cantina.html" hreflang="it" lang="it" aria-label="Italiano">IT / <b>EN</b></a>
+      <a class="btn btn-ocra" href="index.html#prenota">Book a table</a>
+      <button class="apri-menu" aria-expanded="false" aria-controls="navigazione" aria-label="Open navigation menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+<main id="contenuto">
+
+<section class="cantina-pag">
+  <div class="wrap">
+    <div class="appare">
+      <h1>The Cantina degli Artisti</h1>
+      <div class="quaranta"><b>40</b><span>guests</span></div>
+      <p class="testo-sez">It&#x27;s a room for about 40 people, booked separately. We host events, private dinners, business meetings, classes and evenings with live matches.</p>
+      <ul class="usi"><li>Events</li><li>Private dinners</li><li>Business meetings</li><li>Classes</li><li>Live matches</li></ul>
+      <a class="btn btn-ocra" href="#richiesta">Send request</a>
+    </div>
+    <div class="cornice appare"><img src="../assets/img/cantina.webp" alt="La Cantina degli Artisti" width="959" height="1400" fetchpriority="high"></div>
+  </div>
+</section>
+<section class="sez prenota-sez form-cantina" id="richiesta" aria-labelledby="t-rich">
+  <div class="wrap">
+    <div class="appare"><h2 class="titolo-sez" id="t-rich">Request the Cantina</h2><p class="testo-sez">Send us the date, number of people and what you have in mind. We&#x27;ll reply with a proposal.</p>
+      <div class="contatti-rapidi"><a class="btn btn-linea" href="https://wa.me/" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Message on WhatsApp</a></div></div>
+    <div class="modulo appare">
+      <form data-modulo novalidate>
+        <div class="campi">
+          <div class="campo"><label for="c-tipo">Type of event</label><select id="c-tipo" name="tipo" required aria-describedby="c-tipo-err"><option value="">Choose</option><option>Private dinner</option><option>Company event</option><option>Meeting</option><option>Course or workshop</option><option>Match night</option><option>Other</option></select><span class="err" id="c-tipo-err">Please fill in this field</span></div>
+          <div class="campo"><label for="c-data">Date</label><input id="c-data" name="data" type="date" required aria-describedby="c-data-err"><span class="err" id="c-data-err">Please fill in this field</span></div>
+          <div class="campo"><label for="c-ospiti">Number of guests</label><input id="c-ospiti" name="ospiti" type="number" min="1" max="40" inputmode="numeric" required aria-describedby="c-ospiti-err"><span class="err" id="c-ospiti-err">Please fill in this field</span></div>
+          <div class="campo"><label for="c-nome">Full name</label><input id="c-nome" name="nome" autocomplete="name" required aria-describedby="c-nome-err"><span class="err" id="c-nome-err">Please fill in this field</span></div>
+          <div class="campo"><label for="c-tel">Phone</label><input id="c-tel" name="telefono" type="tel" autocomplete="tel" data-tel required aria-describedby="c-tel-err"><span class="err" id="c-tel-err">Please enter a phone number</span></div>
+          <div class="campo"><label for="c-mail">Email <small>(optional)</small></label><input id="c-mail" name="email" type="email" autocomplete="email" aria-describedby="c-mail-err"><span class="err" id="c-mail-err">Please check the email address</span></div>
+          <div class="campo largo"><label for="c-msg">Message <small>(optional)</small></label><textarea id="c-msg" name="messaggio"></textarea><span class="err" id="c-msg-err">Please fill in this field</span></div>
+        </div>
+        <button class="btn btn-ocra" type="submit">Send request</button>
+        <p class="nota-bozza">Draft: the form does not send data yet.</p>
+      </form>
+      <div class="esito" role="status"><i class="ph ph-check-circle" aria-hidden="true"></i><p>Thank you, we&#x27;ve received your request. We&#x27;ll get back to you soon with a proposal.</p><p class="nota-bozza">This is only a preview: in the draft no data has been sent.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="piede">
+  <img class="nave-piede" src="../assets/img/galeone-chiaro.webp" alt="" width="1200" height="1344" loading="lazy">
+  <div class="wrap">
+    <div>
+      <a class="marchio" href="index.html"><span class="o">OSTERIA</span><span class="c">CORSETTI 1921</span></a>
+      <p>Osteria Corsetti, in Trastevere since 1921.</p>
+    </div>
+    <div><h2>Pages</h2><ul>
+      <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
+      <li><a href="cantina.html">Cantina degli Artisti</a></li><li><a href="index.html#prenota">Book a table</a></li></ul></div>
+    <div><h2>Contacts</h2><ul>
+      <li>Piazza di San Cosimato 27, 00153 Roma</li><li><span class="dc" title="to be confirmed">06 000 0000</span></li><li><a href="https://wa.me/" rel="noopener">WhatsApp</a></li></ul></div>
+    <div class="fine"><span>&copy; Osteria Corsetti 1921</span><span>Trastevere, Roma</span></div>
+  </div>
+</footer>
+<a class="wa" href="https://wa.me/" rel="noopener" aria-label="Message on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>
+<script src="../assets/sito.js?v=6c484d13" defer></script>
+</body>
+</html>
