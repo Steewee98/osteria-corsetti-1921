@@ -1,6 +1,6 @@
 /* Osteria Corsetti 1921, bozza del sito.
    Identità presa dal menù di carta: blu marina, ocra, lavanda, galeone inciso, corda, arco a righe, acquedotto.
-   Serif giustificato: marchio storico (1921). Ultra = "OSTERIA" del menù, Bodoni Moda = titoli, Jost = testi.
+   Serif giustificato: marchio storico (1921). Ultra = "OSTERIA" del menù, Libre Baskerville = titoli (dal 25/11: il Bodoni aveva le aste sottili troppo fini, poco leggibili), Jost = testi.
    Regola delle forme: pulsanti a pillola; schede 20px; foto e illustrazioni dentro un ARCO (come la copertina dei vini).
    Un solo accento: ocra. Il verde serve solo al pulsante WhatsApp (riconoscibilità).
    Tema chiaro fisso, come il menù stampato (scelta di bozza). */
@@ -9,7 +9,7 @@
   --carta:#f8f8f5; --tinta:#eef0f6; --blu:#1c2752; --blu2:#2b3767; --notte:#141c3d;
   --ocra:#c4862a; --lav:#aab1d6; --testo:#262c45; --tenue:#555b78;
   --wa:#1f9a52;
-  --display:"Bodoni Moda",Georgia,serif; --insegna:"Ultra",Georgia,serif; --corpo:"Jost",system-ui,sans-serif;
+  --display:"Libre Baskerville",Baskerville,Georgia,serif; --insegna:"Ultra",Georgia,serif; --corpo:"Jost",system-ui,sans-serif;
   --r:20px; --max:1240px; --gutter:clamp(16px,4vw,56px);
   --ease:cubic-bezier(.16,1,.3,1);
 }
@@ -18,7 +18,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100
 body{margin:0;background:var(--carta);color:var(--testo);font:400 1.0625rem/1.65 var(--corpo);overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:700;color:var(--blu);line-height:1.08;margin:0;letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--display);font-weight:700;color:var(--blu);line-height:1.14;margin:0;letter-spacing:-.01em}
+h3{line-height:1.28}
 p{margin:0}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 .salta{position:absolute;left:-999px;top:8px;background:var(--blu);color:#fff;padding:10px 16px;border-radius:999px;z-index:100}
