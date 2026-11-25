@@ -378,3 +378,6 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 /* l'ingresso in "Dove siamo": solo sul computer (sul telefono è nella hero) */
 .f-ingresso{aspect-ratio:4/5;max-height:560px;width:100%;border-radius:999px 999px var(--r) var(--r);margin-bottom:28px}
 @media (max-width:860px){.f-ingresso{display:none}}
+/* 25/11 sera: la hero è il dehors di sera ovunque; l'ingresso torna visibile anche sul telefono in "Dove siamo" */
+.hero-foto .foto-hero img{object-position:50% 42%}
+@media (max-width:860px){.hero-foto .foto-hero img{object-position:58% 50%}.f-ingresso{display:block;max-height:none}}
