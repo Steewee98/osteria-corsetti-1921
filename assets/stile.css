@@ -381,3 +381,9 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 /* 25/11 sera: la hero è il dehors di sera ovunque; l'ingresso torna visibile anche sul telefono in "Dove siamo" */
 .hero-foto .foto-hero img{object-position:50% 42%}
 @media (max-width:860px){.hero-foto .foto-hero img{object-position:58% 50%}.f-ingresso{display:block;max-height:none}}
+@media (max-width:860px){
+  .hero-foto .wrap{padding-top:56svh;padding-bottom:88px}
+  .hero-foto .foto-hero img{object-position:46% 30%}
+  .hero-foto .foto-hero::after{background:linear-gradient(0deg,rgba(17,24,52,.94) 0%,rgba(17,24,52,.72) 34%,rgba(17,24,52,0) 56%)}
+  .hero-foto h1{font-size:2.2rem}
+}
