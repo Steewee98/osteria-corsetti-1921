@@ -477,3 +477,7 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
   .chef-numeri div+div{padding-left:12px}
   .chef-cta .azioni{width:100%}.chef-cta .btn{flex:1 1 100%;justify-content:center}
 }
+/* Hero che cambia con l'ora: la foto sopra sfuma sulla base */
+.foto-hero .fase-sopra{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;pointer-events:none}
+.foto-hero .fase-sopra:not([src]){display:none}
+.hero-foto .foto-hero img.fase-sopra{animation:none}

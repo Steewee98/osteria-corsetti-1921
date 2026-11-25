@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ultra&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-<link rel="stylesheet" href="../assets/stile.css?v=ce26e9e1">
+<link rel="stylesheet" href="../assets/stile.css?v=e6dc277d">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Osteria Corsetti 1921", "servesCuisine": ["Romana", "Italiana"], "foundingDate": "1921", "address": {"@type": "PostalAddress", "streetAddress": "Piazza di San Cosimato 27", "addressLocality": "Roma", "postalCode": "00153", "addressCountry": "IT"}, "geo": {"@type": "GeoCoordinates", "latitude": 41.88768, "longitude": 12.46945}, "hasMenu": "menu.html", "acceptsReservations": true, "description": "Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.", "telephone": "+39 06 580 9009"}</script>
 </head>
 <body>
@@ -36,7 +36,70 @@
 <section class="hero hero-foto">
   <span class="dal" aria-hidden="true">DAL 1921</span>
   <div class="wrap">
-    <figure class="foto foto-hero"><img src="../assets/img/foto/ingresso-hero.webp" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009" fetchpriority="high"></figure>
+    <figure class="foto foto-hero" data-dir="../assets/img/foto/"><img class="fase-base" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009" fetchpriority="high"><img class="fase-sopra" alt="" aria-hidden="true" width="1500" height="2009"><noscript><img src="../assets/img/foto/ingresso-sera.webp" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009"></noscript></figure><script>// Foto della hero secondo l'ora a Roma: mattina, giorno, tramonto, sera, con dissolvenze lente tra una fase e l'altra.
+// Alba e tramonto calcolati per il giorno dell'anno (formule NOAA, precisione di qualche minuto). Prova: ?ora=19:30
+(function () {
+  var fig = document.currentScript.previousElementSibling;
+  var base = fig.querySelector(".fase-base"), sopra = fig.querySelector(".fase-sopra");
+  var dir = fig.getAttribute("data-dir");
+  var LAT = 41.889, LON = 12.469, R = Math.PI / 180;
+
+  function sole(d) {  // minuti UTC di alba e tramonto
+    var inizio = Date.UTC(d.getUTCFullYear(), 0, 1), g = (d - inizio) / 864e5;
+    var y = 2 * Math.PI / 365 * g;
+    var eq = 229.18 * (0.000075 + 0.001868 * Math.cos(y) - 0.032077 * Math.sin(y) - 0.014615 * Math.cos(2 * y) - 0.040849 * Math.sin(2 * y));
+    var dec = 0.006918 - 0.399912 * Math.cos(y) + 0.070257 * Math.sin(y) - 0.006758 * Math.cos(2 * y) + 0.000907 * Math.sin(2 * y) - 0.002697 * Math.cos(3 * y) + 0.00148 * Math.sin(3 * y);
+    var ha = Math.acos(Math.cos(90.833 * R) / (Math.cos(LAT * R) * Math.cos(dec)) - Math.tan(LAT * R) * Math.tan(dec)) / R;
+    return [720 - 4 * (LON + ha) - eq, 720 - 4 * (LON - ha) - eq];
+  }
+
+  function adesso() {
+    var d = new Date(), m = /[?&]ora=(\d{1,2}):(\d{2})/.exec(location.search);
+    if (m) {  // ora di Roma scritta a mano: la converto in UTC con lo scarto di Roma di oggi
+      var roma = new Date(d.toLocaleString("en-US", { timeZone: "Europe/Rome" }));
+      var scarto = Math.round((roma - new Date(d.toLocaleString("en-US", { timeZone: "UTC" }))) / 6e4);
+      return [d, (+m[1] * 60 + +m[2] - scarto + 1440) % 1440];
+    }
+    return [d, d.getUTCHours() * 60 + d.getUTCMinutes() + d.getUTCSeconds() / 60];
+  }
+
+  // Fasi piene [da, a] in minuti dall'alba (a) o dal tramonto (t); tra una fase e l'altra si dissolve.
+  function fase() {
+    var o = adesso(), s = sole(o[0]), a = s[0], t = s[1], m = o[1];
+    var tappe = [  // [inizio pieno, fine pieno, nome]
+      [a + 20, a + 150, "mattina"],
+      [a + 210, t - 120, "giorno"],
+      [t - 70, t + 5, "tramonto"],
+      [t + 40, a + 1440 - 20, "sera"]
+    ];
+    for (var i = 0; i < 4; i++) {
+      var p = tappe[i], q = tappe[(i + 1) % 4];
+      var fine = p[1], prossimo = q[0] + (i === 3 ? 1440 : 0);
+      var x = m; while (x < p[0]) x += 1440;
+      if (x <= fine) return [p[2], q[2], 0];
+      if (x < prossimo) return [p[2], q[2], (x - fine) / (prossimo - fine)];
+    }
+    return ["sera", "mattina", 0];
+  }
+
+  function src(n) { return dir + "ingresso-" + n + ".webp"; }
+  var ora = null;
+  function aggiorna() {
+    var f = fase(), sfuma = f[2] * f[2] * (3 - 2 * f[2]);  // dissolvenza morbida
+    if (ora !== f[0]) {  // fase nuova: la base diventa la fase attuale
+      ora = f[0];
+      if (base.getAttribute("src") !== src(f[0])) base.src = src(f[0]);
+    }
+    if (sfuma > 0) {
+      if (sopra.getAttribute("src") !== src(f[1])) sopra.src = src(f[1]);
+      sopra.style.opacity = sfuma;
+    } else sopra.style.opacity = 0;
+    fig.setAttribute("data-fase", f[0]);
+  }
+  aggiorna();
+  setInterval(aggiorna, 60000);
+})();
+</script>
     <div class="appare">
       <h1>Osteria Corsetti, since 1921</h1>
       <p class="sotto">Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.</p>
@@ -203,6 +266,6 @@
   </div>
 </footer>
 <a class="wa" href="https://wa.me/" rel="noopener" aria-label="Message on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>
-<script src="../assets/sito.js?v=ce26e9e1" defer></script>
+<script src="../assets/sito.js?v=e6dc277d" defer></script>
 </body>
 </html>
