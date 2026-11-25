@@ -36,7 +36,7 @@
 <section class="hero hero-foto">
   <span class="dal" aria-hidden="true">DAL 1921</span>
   <div class="wrap">
-    <figure class="foto foto-hero" data-dir="../assets/img/foto/"><img class="fase-base" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009" fetchpriority="high"><img class="fase-sopra" alt="" aria-hidden="true" width="1500" height="2009"><noscript><img src="../assets/img/foto/ingresso-sera.webp" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009"></noscript></figure><script>// Foto della hero secondo l'ora a Roma: mattina, giorno, tramonto, sera, con dissolvenze lente tra una fase e l'altra.
+    <figure class="foto foto-hero" data-dir="../assets/img/foto/"><img class="fase-base" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009" fetchpriority="high"><img class="fase-sopra" alt="" aria-hidden="true" width="1500" height="2009"><noscript><img src="../assets/img/foto/ingresso-sera.webp" alt="the entrance on Piazza di San Cosimato, under the bougainvillea" width="1500" height="2009"></noscript></figure><script>// Foto della hero secondo l'ora a Roma: mattina, giorno, tramonto, sera, notte, con dissolvenze lente tra una fase e l'altra.
 // Alba e tramonto calcolati per il giorno dell'anno (formule NOAA, precisione di qualche minuto). Prova: ?ora=19:30
 (function () {
   var fig = document.currentScript.previousElementSibling;
@@ -66,20 +66,23 @@
   // Fasi piene [da, a] in minuti dall'alba (a) o dal tramonto (t); tra una fase e l'altra si dissolve.
   function fase() {
     var o = adesso(), s = sole(o[0]), a = s[0], t = s[1], m = o[1];
-    var tappe = [  // [inizio pieno, fine pieno, nome]
+    var tappe = [  // [inizio pieno, fine pieno, foto]; l'alba ripassa dalla luce blu della sera
       [a + 20, a + 150, "mattina"],
       [a + 210, t - 120, "giorno"],
       [t - 70, t + 5, "tramonto"],
-      [t + 40, a + 1440 - 20, "sera"]
+      [t + 40, t + 100, "sera"],
+      [t + 170, a + 1440 - 70, "notte"],
+      [a + 1440 - 30, a + 1440 - 10, "sera"]
     ];
-    for (var i = 0; i < 4; i++) {
-      var p = tappe[i], q = tappe[(i + 1) % 4];
-      var fine = p[1], prossimo = q[0] + (i === 3 ? 1440 : 0);
+    var n = tappe.length;
+    for (var i = 0; i < n; i++) {
+      var p = tappe[i], q = tappe[(i + 1) % n];
+      var fine = p[1], prossimo = q[0] + (i === n - 1 ? 1440 : 0);
       var x = m; while (x < p[0]) x += 1440;
       if (x <= fine) return [p[2], q[2], 0];
       if (x < prossimo) return [p[2], q[2], (x - fine) / (prossimo - fine)];
     }
-    return ["sera", "mattina", 0];
+    return ["notte", "sera", 0];
   }
 
   function src(n) { return dir + "ingresso-" + n + ".webp"; }
