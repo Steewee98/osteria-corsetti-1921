@@ -430,3 +430,17 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 .cop-cantina{justify-self:end;width:100%;max-width:440px}
 .cop-cantina .f-arco{transform:rotate(2deg);width:100%}
 @media (max-width:860px){.cop-cantina{justify-self:center;order:-1;max-width:320px}}
+
+/* 25/11 (2): la hero è l'ingresso con la buganvillea. Sul computer foto intera a destra, testo sul blu a sinistra */
+@media (min-width:861px){
+  .hero-foto .foto-hero{left:50%;right:0;top:0;bottom:0;inset:0 0 0 50%}
+  .hero-foto .foto-hero img{object-position:50% 45%;animation:none}
+  .hero-foto .foto-hero::after{background:linear-gradient(90deg,var(--blu) 0%,rgba(28,39,82,0) 18%)}
+  .hero-foto .wrap>.appare{max-width:46%}
+  .hero-foto{align-items:center}
+  .hero-foto .wrap{padding-top:clamp(48px,8vh,96px);padding-bottom:clamp(48px,8vh,96px)}
+}
+@media (max-width:860px){
+  .hero-foto .foto-hero{aspect-ratio:4/5}
+  .hero-foto .foto-hero img{object-position:50% 40%}
+}
