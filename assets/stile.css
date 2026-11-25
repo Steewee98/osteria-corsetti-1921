@@ -323,3 +323,5 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
   .coppia .f-bassa{margin-top:40px}
   .foto figcaption{font-size:.64rem;letter-spacing:.1em;bottom:12px}
 }
+@media (max-width:860px){.galleria .g2.vuota img,.galleria .g3.vuota img{display:none}.galleria .g2 figcaption,.galleria .g3 figcaption{top:50%;bottom:auto;transform:translateY(-50%)}}
+.galleria-cantina{padding-bottom:clamp(24px,4vw,48px)}
