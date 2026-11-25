@@ -68,18 +68,21 @@ p{margin:0}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;align-items:center;gap:24px;min-height:min(calc(100dvh - 72px - 100px),760px);padding-top:clamp(24px,4vh,56px);padding-bottom:clamp(24px,4vh,56px)}
-.hero h1{font-size:clamp(2.4rem,4.4vw,4rem);max-width:15ch;text-wrap:balance}
+/* hero: foto grande del locale ad arco (motivo del menù) accanto al titolo; sul telefono la foto sta sopra */
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,80px);min-height:calc(100svh - 72px);padding-top:clamp(24px,4vh,48px);padding-bottom:clamp(56px,9vh,110px)}
+.hero h1{font-size:clamp(2.4rem,4.4vw,4.2rem);max-width:15ch;text-wrap:balance}
 .hero .sotto{font-size:clamp(1.05rem,1.4vw,1.28rem);color:var(--tenue);max-width:36ch;margin:22px 0 34px}
 .azioni{display:flex;gap:12px;flex-wrap:wrap}
-/* galeone: sfondo fermo e leggero dietro il testo */
-.hero .nave{position:absolute;z-index:0;inset:0;display:flex;justify-content:flex-end;opacity:.13;pointer-events:none}
-.hero .nave img{height:100%;width:auto;max-width:none}
+.foto-hero{order:2;margin:0;justify-self:end;width:100%;max-width:560px;height:min(calc(100svh - 72px - 150px),760px);min-height:420px;border-radius:999px 999px 22px 22px;overflow:hidden;position:relative;background:var(--blu);box-shadow:0 40px 60px -40px rgba(28,39,82,.75)}
+.foto-hero img{width:100%;height:100%;object-fit:cover;display:block}
+/* segnaposto finché non arriva la foto vera: galeone chiaro su blu */
+.foto-hero.vuota img{object-fit:contain;padding:12% 10% 18%;opacity:.42;mix-blend-mode:normal}
+.foto-hero figcaption{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .hero .mare{position:absolute;left:0;right:0;bottom:0;height:120px;background:url(img/pt-onde.png) repeat-x left bottom/auto 120px;opacity:.5;pointer-events:none}
 .dal{position:absolute;left:calc(var(--gutter) * .3);bottom:56px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-size:.85rem;letter-spacing:.42em;color:var(--blu);opacity:.55} /* "DAL 1921" in verticale: viene dalla copertina del menù */
 @media (max-width:860px){
-  .hero .wrap{grid-template-columns:1fr;gap:8px;min-height:0}
-  .hero .nave{justify-content:center;padding:0;opacity:.09}
+  .hero .wrap{grid-template-columns:1fr;gap:26px;min-height:0;padding-top:14px;padding-bottom:84px}
+  .foto-hero{order:0;justify-self:stretch;max-width:none;height:clamp(300px,52svh,520px);min-height:0}
   .dal{display:none}
   .hero .mare{height:70px;background-size:auto 70px}
 }
@@ -256,6 +259,14 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 }
 
 /* il galeone ha il fondo bianco dentro la sagoma: si fonde con la carta */
-.hero .nave img,.testa-pag .nave-mini{mix-blend-mode:multiply}
+.testa-pag .nave-mini{mix-blend-mode:multiply}
 .wrap>*{min-width:0}
 @media (max-width:520px){.btn{white-space:normal;text-align:center;justify-content:center}.azioni .btn{width:100%}}
+
+/* WhatsApp sul telefono: barra in basso a tutta larghezza invece del tondo, che copriva i prezzi del menù */
+@media (max-width:760px){
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .wa{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));width:auto;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:1.45rem}
+  .wa::after{content:attr(aria-label);font-family:var(--corpo);font-size:1rem;font-weight:600}
+  .wa:hover{transform:none}
+}
