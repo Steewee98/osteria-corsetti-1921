@@ -481,3 +481,27 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 .foto-hero .fase-sopra{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;pointer-events:none}
 .foto-hero .fase-sopra:not([src]){display:none}
 .hero-foto .foto-hero img.fase-sopra{animation:none}
+
+/* I nostri clienti: due file di foto che scorrono in versi opposti, senza nomi (26/11) */
+.clienti-pag{padding:clamp(110px,14vw,170px) 0 clamp(70px,9vw,120px);overflow-x:clip}
+.clienti-pag .wrap{max-width:760px}
+.clienti-pag h1{font-size:clamp(2.2rem,5vw,3.6rem);margin:10px 0 18px}
+.clienti-fila{margin:clamp(34px,5vw,56px) calc(50% - 50vw) 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.clienti-fila + .clienti-fila{margin-top:22px}
+.clienti-pista,.clienti-giro{display:flex;gap:22px;align-items:center}
+.clienti-pista{width:max-content;padding:8px 0}
+.ospite{margin:0;flex:none;background:#fff;padding:10px 10px 30px;border-radius:6px;box-shadow:0 22px 36px -28px rgba(28,39,82,.55)}
+.ospite img{height:clamp(200px,26vw,330px);width:auto;border-radius:3px}
+.ospite:nth-child(odd){transform:rotate(-1.4deg)}
+.ospite:nth-child(3n){transform:rotate(1.2deg) translateY(10px)}
+.clienti-fine{margin-top:clamp(44px,6vw,70px);display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center}
+.clienti-fine p{font-family:var(--display);font-size:clamp(1.15rem,1.8vw,1.4rem);color:var(--blu);flex:1 1 320px}
+@media (prefers-reduced-motion:no-preference){
+  .verso-sx .clienti-pista{animation:clienti-sx 80s linear infinite}
+  .verso-dx .clienti-pista{animation:clienti-dx 80s linear infinite}
+  .clienti-fila:hover .clienti-pista{animation-play-state:paused}
+}
+/* due giri uguali: spostare di metà pista (più metà spazio) riporta al punto di partenza senza salti */
+@keyframes clienti-sx{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 11px))}}
+@keyframes clienti-dx{from{transform:translateX(calc(-50% - 11px))}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.clienti-fila{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.clienti-copia{display:none}}
