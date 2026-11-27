@@ -505,3 +505,6 @@ fieldset.campo{border:0;margin:0;padding:0;min-width:0}
 @keyframes clienti-sx{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 11px))}}
 @keyframes clienti-dx{from{transform:translateX(calc(-50% - 11px))}to{transform:translateX(0)}}
 @media (prefers-reduced-motion:reduce){.clienti-fila{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.clienti-copia{display:none}}
+
+/* link per riaprire WhatsApp dopo l'invio del modulo (27/11) */
+.esito .riapri{font:500 1rem/1.4 var(--corpo);color:var(--blu)}

@@ -38,8 +38,27 @@
     i.min = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
   });
 
-  // Moduli: controllo dei campi obbligatori, poi messaggio di conferma.
-  // BOZZA: qui andrà la chiamata al registro prenotazioni; ora non parte nessun dato.
+  // Moduli: controllo dei campi obbligatori, poi si apre WhatsApp verso il locale con il messaggio pronto.
+  // (quando ci sarà il registro prenotazioni, la richiesta potrà arrivare lì)
+  function linkWhatsApp(form) {
+    const numero = form.dataset.wa;
+    if (!numero) return "";
+    const righe = [form.dataset.intro || ""];
+    $$(".campo", form).forEach(c => {
+      const etich = (c.querySelector("label, legend") || {}).firstChild;
+      const nome = etich ? etich.textContent.trim() : "";
+      let val = "";
+      const radio = $$("input[type=radio]", c).find(r => r.checked);
+      if (radio) val = radio.value;
+      else {
+        const x = c.querySelector("input, select, textarea");
+        if (x) val = x.value.trim();
+        if (x && x.type === "date" && /^\d{4}-\d{2}-\d{2}$/.test(val)) val = val.split("-").reverse().join("/");
+      }
+      if (val) righe.push(nome + ": " + val);
+    });
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(righe.join("\n"));
+  }
   $$("form[data-modulo]").forEach(form => {
     form.addEventListener("submit", e => {
       e.preventDefault();
@@ -61,7 +80,15 @@
         if (!ok && !primo) primo = campi[0];
       });
       if (primo) { primo.focus(); return; }
+      // messaggio WhatsApp: frase d'apertura + «etichetta: valore» per ogni campo compilato
+      const url = linkWhatsApp(form);
       const box = form.closest(".modulo");
+      const riapri = $(".riapri", box);
+      if (url) {
+        if (riapri) riapri.href = url;
+        const w = window.open(url, "_blank", "noopener");
+        if (!w) location.href = url;  // finestra bloccata: si apre nella stessa scheda
+      }
       box.classList.add("inviato");
       const esito = $(".esito", box);
       if (esito) { esito.setAttribute("tabindex", "-1"); esito.focus(); }

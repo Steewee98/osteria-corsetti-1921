@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Osteria Corsetti 1921, Trastevere | Rome</title>
 <meta name="description" content="Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.">
-<meta name="robots" content="noindex"><!-- BOZZA: togliere alla pubblicazione -->
+<meta name="robots" content="noindex"><!-- niente Google finché manca il dominio: vedi DOMINIO -->
 <link rel="alternate" hreflang="it" href="../index.html"><link rel="alternate" hreflang="en" href="index.html">
 <meta property="og:title" content="Osteria Corsetti 1921, Trastevere | Rome"><meta property="og:description" content="Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.">
 <meta property="og:image" content="../assets/img/galeone.webp">
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ultra&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-<link rel="stylesheet" href="../assets/stile.css?v=3599bb6f">
+<link rel="stylesheet" href="../assets/stile.css?v=9f095283">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Osteria Corsetti 1921", "servesCuisine": ["Romana", "Italiana"], "foundingDate": "1921", "address": {"@type": "PostalAddress", "streetAddress": "Piazza di San Cosimato 27", "addressLocality": "Roma", "postalCode": "00153", "addressCountry": "IT"}, "geo": {"@type": "GeoCoordinates", "latitude": 41.88768, "longitude": 12.46945}, "hasMenu": "menu.html", "acceptsReservations": true, "description": "Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.", "telephone": "+39 06 580 9009"}</script>
 </head>
 <body>
@@ -108,7 +108,7 @@
       <p class="sotto">Family Roman cooking in Piazza di San Cosimato, Trastevere. Book a table or message us.</p>
       <div class="azioni">
         <a class="btn btn-ocra" href="#prenota"><i class="ph ph-calendar-check" aria-hidden="true"></i>Book a table</a>
-        
+        <a class="btn btn-linea" href="https://wa.me/393429222442" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Message on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -209,26 +209,26 @@
   <div class="wrap">
     <div class="appare">
       <h2 class="titolo-sez" id="t-pren">Book a table</h2>
-      <p class="testo-sez">Choose the day, time and number of people. Your request comes straight to us and we confirm it. Or message us on WhatsApp.</p>
+      <p class="testo-sez">Choose the day, time and number of guests for your visit. Pressing the button will open WhatsApp with a pre-filled message ready to send, and we will reply to confirm, or you may call us directly.</p>
       <div class="contatti-rapidi">
-        
+        <a class="btn btn-linea" href="https://wa.me/393429222442" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Message on WhatsApp</a>
         <span><i class="ph ph-phone" aria-hidden="true"></i> <a href="tel:+39065809009">06 580 9009</a></span>
       </div>
     </div>
     <div class="modulo appare">
-      <form data-modulo novalidate>
+      <form data-modulo data-wa="393429222442" data-intro="Hello, I would like to book a table at Osteria Corsetti 1921." novalidate>
         <div class="campi">
           <div class="campo"><label for="p-giorno">Date</label><input id="p-giorno" name="giorno" type="date" required aria-describedby="p-giorno-err"><span class="err" id="p-giorno-err">Please fill in this field</span></div>
-          <div class="campo"><label for="p-ora">Time</label><select id="p-ora" name="ora" required aria-describedby="p-ora-err"><option value="">Choose</option><option>12:00</option><option>12:15</option><option>12:30</option><option>12:45</option><option>13:00</option><option>13:15</option><option>13:30</option><option>13:45</option><option>14:00</option><option>14:15</option><option>14:30</option><option>19:00</option><option>19:15</option><option>19:30</option><option>19:45</option><option>20:00</option><option>20:15</option><option>20:30</option><option>20:45</option><option>21:00</option><option>21:15</option><option>21:30</option><option>21:45</option><option>22:00</option><option>22:15</option><option>22:30</option></select><span class="err" id="p-ora-err">Please fill in this field</span></div>
+          <div class="campo"><label for="p-ora">Time</label><select id="p-ora" name="ora" required aria-describedby="p-ora-err"><option value="">Choose</option><option>11:30</option><option>11:45</option><option>12:00</option><option>12:15</option><option>12:30</option><option>12:45</option><option>13:00</option><option>13:15</option><option>13:30</option><option>13:45</option><option>14:00</option><option>14:15</option><option>14:30</option><option>18:00</option><option>18:15</option><option>18:30</option><option>18:45</option><option>19:00</option><option>19:15</option><option>19:30</option><option>19:45</option><option>20:00</option><option>20:15</option><option>20:30</option><option>20:45</option><option>21:00</option><option>21:15</option><option>21:30</option></select><span class="err" id="p-ora-err">Please fill in this field</span></div>
           <fieldset class="campo largo"><legend>Guests</legend><div class="persone"><label><input type="radio" name="persone" value="1" required><span>1</span></label><label><input type="radio" name="persone" value="2" checked><span>2</span></label><label><input type="radio" name="persone" value="3"><span>3</span></label><label><input type="radio" name="persone" value="4"><span>4</span></label><label><input type="radio" name="persone" value="5"><span>5</span></label><label><input type="radio" name="persone" value="6"><span>6</span></label><label><input type="radio" name="persone" value="7+"><span>7+</span></label></div><span class="err">Please fill in this field</span></fieldset>
           <div class="campo"><label for="p-nome">Full name</label><input id="p-nome" name="nome" autocomplete="name" required aria-describedby="p-nome-err"><span class="err" id="p-nome-err">Please fill in this field</span></div>
           <div class="campo"><label for="p-tel">Phone</label><input id="p-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" data-tel required aria-describedby="p-tel-err"><span class="err" id="p-tel-err">Please enter a phone number</span></div>
           <div class="campo largo"><label for="p-note">Notes <small>(optional)</small></label><textarea id="p-note" name="note" placeholder="E.g. allergies, intolerances, high chair"></textarea><span class="err" id="p-note-err">Please fill in this field</span></div>
         </div>
-        <button class="btn btn-ocra" type="submit">Book a table</button>
-        <p class="nota-bozza">Draft: the form does not send data yet.</p>
+        <button class="btn btn-ocra" type="submit"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Book a table</button>
+        <p class="nota-bozza">Opens WhatsApp with a pre-filled message.</p>
       </form>
-      <div class="esito" role="status"><i class="ph ph-check-circle" aria-hidden="true"></i><p>Thank you, we&#x27;ve received your request. We&#x27;ll confirm your booking as soon as we can.</p><p class="nota-bozza">This is only a preview: in the draft no data has been sent.</p></div>
+      <div class="esito" role="status"><i class="ph ph-check-circle" aria-hidden="true"></i><p>WhatsApp has opened with your request already written. Press Send in the chat and we will confirm your table as soon as possible.</p><p><a class="riapri" href="#" rel="noopener">Open WhatsApp again</a></p></div>
     </div>
   </div>
 </section>
@@ -246,7 +246,7 @@
       <p class="testo-sez">Piazza di San Cosimato 27, in Trastevere. It&#x27;s an easy walk from anywhere in the neighbourhood.</p>
       <dl>
         <div><dt><i class="ph ph-map-pin" aria-hidden="true"></i>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Piazza+di+San+Cosimato+27+Roma" rel="noopener">Piazza di San Cosimato 27, 00153 Roma</a></dd></div>
-        <div><dt><i class="ph ph-clock" aria-hidden="true"></i>Opening hours</dt><dd><span class="dc" title="to be confirmed">Lunch and dinner</span></dd></div>
+        <div><dt><i class="ph ph-clock" aria-hidden="true"></i>Opening hours</dt><dd>Every day 11am-3:30pm and 6pm-10:30pm, Sunday evening until 11pm</dd></div>
         <div><dt><i class="ph ph-phone" aria-hidden="true"></i>Phone</dt><dd><a href="tel:+39065809009">06 580 9009</a></dd></div>
       </dl>
     </div>
@@ -264,11 +264,11 @@
       <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
       <li><a href="cantina.html">Cantina degli Artisti</a></li><li><a href="chef.html">The Chef</a></li><li><a href="clienti.html">Our guests</a></li><li><a href="index.html#prenota">Book a table</a></li></ul></div>
     <div><h2>Contacts</h2><ul>
-      <li>Piazza di San Cosimato 27, 00153 Roma</li><li><a href="tel:+39065809009">06 580 9009</a></li></ul></div>
+      <li>Piazza di San Cosimato 27, 00153 Roma</li><li><a href="tel:+39065809009">06 580 9009</a></li><li><a href="https://wa.me/393429222442" rel="noopener">WhatsApp</a></li></ul></div>
     <div class="fine"><span>&copy; Osteria Corsetti 1921</span><span>Trastevere, Roma</span></div>
   </div>
 </footer>
-
-<script src="../assets/sito.js?v=3599bb6f" defer></script>
+<a class="wa" href="https://wa.me/393429222442" rel="noopener" aria-label="Message on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>
+<script src="../assets/sito.js?v=9f095283" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Cantina degli Artisti | Osteria Corsetti 1921</title>
 <meta name="description" content="The Cantina degli Artisti is a room for about 40 people that you can book just for yourselves.">
-<meta name="robots" content="noindex"><!-- BOZZA: togliere alla pubblicazione -->
+<meta name="robots" content="noindex"><!-- niente Google finché manca il dominio: vedi DOMINIO -->
 <link rel="alternate" hreflang="it" href="../cantina.html"><link rel="alternate" hreflang="en" href="cantina.html">
 <meta property="og:title" content="The Cantina degli Artisti | Osteria Corsetti 1921"><meta property="og:description" content="The Cantina degli Artisti is a room for about 40 people that you can book just for yourselves.">
 <meta property="og:image" content="../assets/img/galeone.webp">
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ultra&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-<link rel="stylesheet" href="../assets/stile.css?v=3599bb6f">
+<link rel="stylesheet" href="../assets/stile.css?v=9f095283">
 
 </head>
 <body>
@@ -50,10 +50,10 @@
 </section>
 <section class="sez prenota-sez form-cantina" id="richiesta" aria-labelledby="t-rich">
   <div class="wrap">
-    <div class="appare"><h2 class="titolo-sez" id="t-rich">Request the Cantina</h2><p class="testo-sez">Send us the date, number of people and what you have in mind. We&#x27;ll reply with a proposal.</p>
-      <div class="contatti-rapidi"></div></div>
+    <div class="appare"><h2 class="titolo-sez" id="t-rich">Request the Cantina</h2><p class="testo-sez">Let us know the date, the number of guests and what you have in mind for your private event. Your enquiry will be sent via WhatsApp and we will reply shortly with a tailored proposal.</p>
+      <div class="contatti-rapidi"><a class="btn btn-linea" href="https://wa.me/393429222442" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Message on WhatsApp</a></div></div>
     <div class="modulo appare">
-      <form data-modulo novalidate>
+      <form data-modulo data-wa="393429222442" data-intro="Hello, I would like a proposal for the Cantina degli Artisti." novalidate>
         <div class="campi">
           <div class="campo"><label for="c-tipo">Type of event</label><select id="c-tipo" name="tipo" required aria-describedby="c-tipo-err"><option value="">Choose</option><option>Private dinner</option><option>Company event</option><option>Meeting</option><option>Course or workshop</option><option>Match night</option><option>Other</option></select><span class="err" id="c-tipo-err">Please fill in this field</span></div>
           <div class="campo"><label for="c-data">Date</label><input id="c-data" name="data" type="date" required aria-describedby="c-data-err"><span class="err" id="c-data-err">Please fill in this field</span></div>
@@ -63,10 +63,10 @@
           <div class="campo"><label for="c-mail">Email <small>(optional)</small></label><input id="c-mail" name="email" type="email" autocomplete="email" aria-describedby="c-mail-err"><span class="err" id="c-mail-err">Please check the email address</span></div>
           <div class="campo largo"><label for="c-msg">Message <small>(optional)</small></label><textarea id="c-msg" name="messaggio"></textarea><span class="err" id="c-msg-err">Please fill in this field</span></div>
         </div>
-        <button class="btn btn-ocra" type="submit">Send request</button>
-        <p class="nota-bozza">Draft: the form does not send data yet.</p>
+        <button class="btn btn-ocra" type="submit"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Send request</button>
+        <p class="nota-bozza">Opens WhatsApp with a pre-filled message.</p>
       </form>
-      <div class="esito" role="status"><i class="ph ph-check-circle" aria-hidden="true"></i><p>Thank you, we&#x27;ve received your request. We&#x27;ll get back to you soon with a proposal.</p><p class="nota-bozza">This is only a preview: in the draft no data has been sent.</p></div>
+      <div class="esito" role="status"><i class="ph ph-check-circle" aria-hidden="true"></i><p>WhatsApp has opened with the details of your enquiry for the Cantina degli Artisti. Press Send in the chat and we will get back to you as soon as possible with a proposal.</p><p><a class="riapri" href="#" rel="noopener">Open WhatsApp again</a></p></div>
     </div>
   </div>
 </section>
@@ -82,11 +82,11 @@
       <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li>
       <li><a href="cantina.html">Cantina degli Artisti</a></li><li><a href="chef.html">The Chef</a></li><li><a href="clienti.html">Our guests</a></li><li><a href="index.html#prenota">Book a table</a></li></ul></div>
     <div><h2>Contacts</h2><ul>
-      <li>Piazza di San Cosimato 27, 00153 Roma</li><li><a href="tel:+39065809009">06 580 9009</a></li></ul></div>
+      <li>Piazza di San Cosimato 27, 00153 Roma</li><li><a href="tel:+39065809009">06 580 9009</a></li><li><a href="https://wa.me/393429222442" rel="noopener">WhatsApp</a></li></ul></div>
     <div class="fine"><span>&copy; Osteria Corsetti 1921</span><span>Trastevere, Roma</span></div>
   </div>
 </footer>
-
-<script src="../assets/sito.js?v=3599bb6f" defer></script>
+<a class="wa" href="https://wa.me/393429222442" rel="noopener" aria-label="Message on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></a>
+<script src="../assets/sito.js?v=9f095283" defer></script>
 </body>
 </html>
